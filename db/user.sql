@@ -1,0 +1,14 @@
+CREATE TABLE Users (
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  First_name VARCHAR(255) NOT NULL,
+  Last_name VARCHAR(255) NOT NULL,
+  Email VARCHAR(255) NOT NULL UNIQUE,
+  Password VARCHAR(255) NOT NULL,
+  Date_of_birth DATE NOT NULL,
+  Sex ENUM('Male', 'Female') NOT NULL,
+  Weight FLOAT,
+  Height FLOAT,
+  Created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_users_email ON Users (Email);
