@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
@@ -11,11 +10,51 @@ const AuthPage = () => {
     setIsLogin(prevState => !prevState);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle login/signup logic here
-  };
   
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    if (isLogin) {
+      // Handle login logic
+      const response = await fetch('your_login_endpoint', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email,
+          password
+        })
+      });
+
+      if (response.ok) {
+       console.log('Login successful');
+      } else {
+        console.error('Login failed');
+      }
+    } else {
+      // Handle signup logic
+      const response = await fetch('your_signup_endpoint', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email,
+          password
+        })
+      });
+
+      if (response.ok) {
+        console.log('Signup successful');
+      } else {
+        console.error('Signup failed');
+      }
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
 
   return (
     <motion.div 
