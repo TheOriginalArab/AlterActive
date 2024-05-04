@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
@@ -10,53 +11,9 @@ const AuthPage = () => {
     setIsLogin(prevState => !prevState);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      if (isLogin) {
-        // Handle login logic
-        const response = await fetch('your_login_endpoint', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            email,
-            password
-          })
-        });
-  
-        if (response.ok) {
-          // Redirect or perform any action upon successful login
-          console.log('Login successful');
-        } else {
-          // Handle login error
-          console.error('Login failed');
-        }
-      } else {
-        // Handle signup logic
-        const response = await fetch('your_signup_endpoint', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            email,
-            password
-          })
-        });
-  
-        if (response.ok) {
-          // Redirect or perform any action upon successful signup
-          console.log('Signup successful');
-        } else {
-          // Handle signup error
-          console.error('Signup failed');
-        }
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    // Handle login/signup logic here
   };
   
 
