@@ -56,6 +56,7 @@ const handleSubmit = async (e) => {
   }
 };
 
+
   return (
     <motion.div 
       className="min-h-screen flex items-center justify-center bg-cover bg-center bg-gradient-to-br from-green-400 to-blue-500"
